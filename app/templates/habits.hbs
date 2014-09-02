@@ -1,0 +1,9 @@
+<h1>Habits</h1>
+
+<ul>
+ {{#each model}}
+ <li>{{#link-to 'habit' this}}{{this.id}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
