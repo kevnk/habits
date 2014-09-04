@@ -1,1 +1,2 @@
-Habitapp.HabitController = Ember.ObjectController.extend()
+Habitapp.HabitController = Ember.ObjectController.extend(
+)

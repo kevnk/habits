@@ -1,9 +1,7 @@
 <h1>Habits</h1>
 
 <ul>
- {{#each model}}
- <li>{{#link-to 'habit' this}}{{this.id}}{{/link-to}}</li>
+  {{#each habit in model}}
+  <li>{{input type=text value=habit.title}}</li>
   {{/each}}
 </ul>
-
-{{outlet}}
