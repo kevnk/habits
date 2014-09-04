@@ -1,7 +1,9 @@
 <h1>Habits</h1>
 
+{{#if habits.length}}
 <ul>
-  {{#each habit in model}}
-  <li>{{input type=text value=habit.title}}</li>
-  {{/each}}
+  {{view Habitapp.HabitListView content=habits}}
 </ul>
+{{/if}}
+
+<a {{action addNewHabit}}>Add Habit</a>
