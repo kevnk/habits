@@ -6,6 +6,10 @@ Habitapp.HabitItemView = Em.View.extend(
     @$().find('input[type=text]').first()
   ).property()
 
+  $checkbox: ( ->
+    @$().find('input[type=checkbox]').first()
+  ).property()
+
   # Store the model on this view for better use
   model: ( ->
     habit = @get('content')
@@ -14,12 +18,19 @@ Habitapp.HabitItemView = Em.View.extend(
   ).property 'content'
 
   displayTitle: Ember.computed.alias 'content.title'
+  markedToday: Ember.computed.alias 'content.markedToday'
 
   setHabitOrder: ( ->
-    @send 'saveHabitOrder', @get('content'), @get('contentIndex')
+    @send 'saveHabitOrder', @get('contentIndex')
   ).observes 'contentIndex'
 
   actions:
+    toggleMarkedToday: ->
+      if model = @get('model')
+        markedToday = @get('$checkbox').prop('checked')
+        model.set 'markedToday', markedToday
+        model.save()
+
     saveHabitTitle: (habit) ->
       if model = @get('model')
         if title = @get('$input').val().trim()
@@ -28,7 +39,7 @@ Habitapp.HabitItemView = Em.View.extend(
           model.deleteRecord()
         model.save()
 
-    saveHabitOrder: (habit, newIdx) ->
+    saveHabitOrder: (newIdx) ->
       if model = @get('model')
         model.set('idx', newIdx)
         model.save()

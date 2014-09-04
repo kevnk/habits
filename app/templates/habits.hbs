@@ -2,7 +2,9 @@
 
 {{#if habits.length}}
 <ul>
-  {{view Habitapp.HabitListView content=habits}}
+  {{#each habits}}
+    {{view Habitapp.HabitItemView content=this}}
+  {{/each}}
 </ul>
 {{/if}}
 
