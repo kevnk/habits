@@ -5,4 +5,11 @@ Habitapp.Router.map( ->
     @route('create')
   )
 
+  @resource('users', ->
+    @resource('user', path: '/:user_id', ->
+      @route('edit')
+    )
+    @route('create')
+  )
+
 )
