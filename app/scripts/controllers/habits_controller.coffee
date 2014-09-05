@@ -1,4 +1,4 @@
-Habitapp.HabitsController = Ember.ObjectController.extend(
+Habitapp.HabitsController = Ember.ObjectController.extend
 
   actions:
     addNewHabit: ->
@@ -10,4 +10,3 @@ Habitapp.HabitsController = Ember.ObjectController.extend(
       })
       habit.save()
       # TODO - focus on that input
-)

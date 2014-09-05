@@ -1,4 +1,3 @@
-Habitapp.IndexRoute = Ember.Route.extend(
+Habitapp.IndexRoute = Ember.Route.extend
   redirect: ->
     @transitionTo 'habits'
-)
