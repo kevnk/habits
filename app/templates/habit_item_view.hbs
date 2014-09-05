@@ -1,2 +1,2 @@
-<input type="text" {{bind-attr value=view.displayTitle}} {{action saveHabitTitle target="view" on="change"}} />
-<input type="checkbox" {{bind-attr checked=view.markedToday}} {{action toggleMarkedToday target="view" on="change"}} />
+<input type="text" tabindex="0" {{bind-attr value=view.displayTitle}} {{action saveHabitTitle target="view" on="change"}} />
+<input type="checkbox" tabindex="-1" {{bind-attr checked=view.markedToday}} {{action toggleMark target="view" on="change"}} />

@@ -2,5 +2,7 @@
 Habitapp.Habit = DS.Model.extend(
   title: DS.attr 'string'
   idx: DS.attr 'number'
-  markedToday: DS.attr 'boolean', defaultValue: false
+  marks: DS.hasMany 'mark'
+  createdAt: DS.attr 'string',
+    defaultValue: -> new Date()
 )
