@@ -1,0 +1,77 @@
+html, body
+  background: #1F5490
+
+$habitWidth: 250px
+
+a.btn-link
+  color: #94bdea
+  font-weight: 200
+  text-align: left
+  text-indent: 10px
+  &:hover
+    color: #b8d4f3
+    text-decoration: none
+
+.main-container
+  width: $habitWidth
+  margin: 30px auto
+
+.avg-container
+  overflow: hidden
+  margin-bottom: 30px
+  height: $habitWidth
+  width: 100%
+  border-radius: 50%
+  background: #2D67A7
+  position: relative
+  .avg-bar
+    background: #2CA0A7
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 9
+    height: 0
+    -webkit-transition: height 3s ease-out
+    -moz-transition: height 3s ease-out
+    -ms-transition: height 3s ease-out
+    -o-transition: height 3s ease-out
+    transition: height 3s ease-out
+  .avg
+    line-height: $habitWidth
+    font-size: 70px
+    font-style: italic
+    text-align: center
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 10
+    opacity: .5
+    color: #1e5490
+    font-weight: 100
+
+
+.habit-item
+  background: #2D67A7
+  border-radius: 4px
+  padding: 10px
+  margin: 10px 0
+  input[type=text]
+    width: 100%
+    color: #fff
+    font-weight: 100
+    margin: 0
+    border: 0
+    border: none
+    background: transparent
+    font-size: 18px
+    letter-spacing: .1em
+  .pull-right
+    margin-right: 20px
+  label
+    font-size: 20px
+    color: #1F5490
+    &.marked
+      color: #fff

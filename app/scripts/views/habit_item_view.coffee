@@ -1,6 +1,9 @@
 Habitapp.HabitItemView = Em.View.extend(
   tagName: 'li'
+  classNames: 'habit-item'
+  classNameBindings: ['isEditing:edit-mode']
   templateName: 'habit_item_view'
+  isEditing: false
 
   $input: ( ->
     @$().find('input[type=text]').first()
@@ -30,6 +33,11 @@ Habitapp.HabitItemView = Em.View.extend(
   setHabitOrder: ( ->
     @send 'saveHabitOrder', @get('contentIndex')
   ).observes 'contentIndex'
+
+  selectAllOnFocus: ( ->
+    @get('$input').on 'click', ->
+      $(this).select()
+  ).on 'didInsertElement'
 
   actions:
     toggleMark: ->
