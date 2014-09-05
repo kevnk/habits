@@ -10,6 +10,14 @@ Habitapp.HabitItemView = Em.View.extend(
     @$().find('input[type=checkbox]').first()
   ).property()
 
+  todaysMarks: ( ->
+    @get('habit').get('marks').filterBy 'day', moment().format('YYYY-MM-DD')
+  ).property 'habit.marks.@each'
+
+  markedToday: ( ->
+    @get('todaysMarks').length > 0
+  ).property 'todaysMarks'
+
   # Store the model on this view for better use
   habit: ( ->
     habit = @get('content')
@@ -38,7 +46,7 @@ Habitapp.HabitItemView = Em.View.extend(
               mark.save()
         # Otherwise, find today's mark and remove it
         else
-          marks = habit.get('marks').filterBy 'day', moment().format('YYYY-MM-DD')
+          marks = @get('todaysMarks')
           marks.forEach (mark) ->
             mark.deleteRecord()
             mark.save()
@@ -48,12 +56,17 @@ Habitapp.HabitItemView = Em.View.extend(
       if habit = @get('habit')
         if title = @get('$input').val().trim()
           habit.set('title', title)
+          habit.save()
         else
+          promises = Ember.A()
           habit.get('marks').forEach (mark) ->
             mark.deleteRecord()
-            mark.save()
-          habit.deleteRecord()
-        habit.save()
+            promises.push mark.save()
+
+          # After all marks are deleted, then delete the habit
+          Ember.RSVP.Promise.all(promises).then ->
+            habit.deleteRecord()
+            habit.save()
 
     saveHabitOrder: (newIdx) ->
       if habit = @get('habit')

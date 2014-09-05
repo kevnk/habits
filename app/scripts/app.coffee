@@ -1,6 +1,8 @@
 Habitapp = window.Habitapp = Ember.Application.create()
 
 # Order and include as you please.
+require 'scripts/ext/*'
+require 'scripts/mixins/*'
 require 'scripts/controllers/*'
 require 'scripts/store'
 require 'scripts/models/*'
