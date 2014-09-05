@@ -18,3 +18,5 @@ Habitapp.HabitsController = Ember.ObjectController.extend Habitapp.StatsMixin,
       })
       habit.save()
       # TODO - focus on that input
+      Ember.run.next ->
+        $('.habit-item input[type=text').last().select()
