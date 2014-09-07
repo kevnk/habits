@@ -1,3 +1,5 @@
 $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
-@import "sass/habits"
+@import "sass/variables";
+@import "sass/mixins";
+@import "sass/habits";

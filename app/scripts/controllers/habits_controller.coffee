@@ -9,14 +9,13 @@ Habitapp.HabitsController = Ember.ObjectController.extend Habitapp.StatsMixin,
   ).observes 'habits.@each'
 
   actions:
-    addNewHabit: ->
+    addNewHabit: (value) ->
       model = @get('model')
       store = model.get('store')
       habit = store.createRecord('habit', {
         idx: model.get('length') + 1
-        title: 'New Habit'
+        title: value
       })
       habit.save()
       # TODO - focus on that input
-      Ember.run.next ->
-        $('.habit-item input[type=text').last().select()
+      @set 'newHabitValue', ''

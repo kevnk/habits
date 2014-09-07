@@ -1,15 +1,15 @@
 html, body
-  background: #1F5490
+  background: $bg-blue
 
-$habitWidth: 250px
+$habitWidth: 290px
 
 a.btn-link
-  color: #94bdea
+  color: $link-color
   font-weight: 200
   text-align: left
-  text-indent: 10px
+  text-indent: 15px
   &:hover
-    color: #b8d4f3
+    color: $link-color-hover
     text-decoration: none
 
 .main-container
@@ -17,28 +17,25 @@ a.btn-link
   margin: 30px auto
 
 .avg-container
+  $avgHeight: $habitWidth - 40
   overflow: hidden
-  margin-bottom: 30px
-  height: $habitWidth
-  width: 100%
+  height: $avgHeight
+  width: $avgHeight
+  margin: 0 auto 30px
   border-radius: 50%
-  background: #2D67A7
+  background: $element-blue
   position: relative
   .avg-bar
-    background: #2CA0A7
+    background: $element-green
     position: absolute
     bottom: 0
     left: 0
     right: 0
     z-index: 9
     height: 0
-    -webkit-transition: height 3s ease-out
-    -moz-transition: height 3s ease-out
-    -ms-transition: height 3s ease-out
-    -o-transition: height 3s ease-out
-    transition: height 3s ease-out
+    +transition(height 3s ease-out)
   .avg
-    line-height: $habitWidth
+    line-height: $avgHeight
     font-size: 70px
     font-style: italic
     text-align: center
@@ -49,28 +46,70 @@ a.btn-link
     right: 0
     z-index: 10
     opacity: .5
-    color: #1e5490
+    color: $alt-blue
     font-weight: 100
+
+
+.new-habit-input
+  +transition(all 500ms ease-out)
+  +unstyle-input
+  border-radius: 4px
+  margin: 6px 0
+  color: white
+  padding: 12px 15px
+  height: 48px
+  display: block
+  width: 100%
+  color: #fff
+  font-size: 18px
+  font-weight: 100
+  letter-spacing: .1em
+  border: 1px solid $element-blue
+  -webkit-appearance: none
+  opacity: .6
+  &:hover
+    opacity: 1
+    cursor: pointer
+  &:focus
+    opacity: 1
+    border-color: $element-green
+
+*::-webkit-input-placeholder
+  color: rgba(255,255,255,0.5)
+
+*:-moz-placeholder
+  color: rgba(255,255,255,0.5)
+
+*::-moz-placeholder
+  color: rgba(255,255,255,0.5)
+
+*:-ms-input-placeholder
+  color: rgba(255,255,255,0.5)
 
 
 .habit-item
-  background: #2D67A7
+  +unselectable
+  background: $element-blue
   border-radius: 4px
-  padding: 10px
-  margin: 10px 0
-  input[type=text]
+  padding: 12px 15px
+  margin: 6px 0
+  input.habit-input
+    +unstyle-input
+    +text-truncate
+    height: 24px
+    display: block
     width: 100%
     color: #fff
     font-weight: 100
-    margin: 0
-    border: 0
-    border: none
-    background: transparent
     font-size: 18px
     letter-spacing: .1em
   .pull-right
-    margin-right: 20px
+    margin-right: 10px
   label
+    height: 24px
+    line-height: 24px
+    width: 30px
+    margin-bottom: 0
     font-size: 20px
     color: #1F5490
     &.marked

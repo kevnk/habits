@@ -36,7 +36,9 @@ Habitapp.HabitItemView = Em.View.extend(
 
   selectAllOnFocus: ( ->
     @get('$input').on 'click', ->
-      $(this).select()
+      this.focus()
+      this.setSelectionRange(0, 9999)
+
   ).on 'didInsertElement'
 
   actions:
