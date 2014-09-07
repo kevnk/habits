@@ -1,6 +1,6 @@
 Habitapp.Router.map( ->
 
-  @resource('habits', ->
+  @resource('habits', path: '/', ->
     @resource('habit', path: '/:habit_id')
     @route('create')
   )
