@@ -64,8 +64,8 @@ Habitapp.HabitItemView = Em.View.extend(
 
     saveHabitTitle: (habit) ->
       if habit = @get('habit')
-        if title = @get('$input').val().trim()
-          habit.set('title', title)
+        if title = @get('$input').val()
+          habit.set('title', $.trim(title))
           habit.save()
         else
           promises = Ember.A()
