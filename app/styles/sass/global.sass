@@ -1,0 +1,40 @@
+@import 'variables'
+@import 'mixins'
+@import 'utilities'
+
+html, body
+  background: #1F5490
+
+h1,h2,h3,h4,h5,h6
+  color: white
+  font-weight: 100
+  letter-spacing: 0.1em
+
+
+a
+  color: $link-color
+  &:hover
+    color: $link-color-hover
+    text-decoration: none
+
+a.btn-link
+  font-weight: 200
+  text-align: left
+  text-indent: 15px
+
+.main-container
+  width: $habitWidth
+  margin: 30px auto
+
+
+footer
+  padding: 50px 0
+  h4
+    margin-bottom: .5em
+  a
+    display: block
+    padding: 8px 0
+    margin: 2px
+    color: darken($link-color, 10%)
+    &:hover
+      color: darken($link-color-hover, 10%)

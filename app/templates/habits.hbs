@@ -1,16 +1,14 @@
-<div class="main-container">
-  <div class="avg-container">
-    <div class="avg">{{displayAvg}}</div>
-    <div class="avg-bar" {{bind-attr style=avgStyle}}></div>
-  </div>
-
-  {{#if habits.length}}
-  <ul class="list-unstyled habit-list">
-    {{#each habits}}
-      {{view Habitapp.HabitItemView content=this idx=this.contentIndex}}
-    {{/each}}
-  </ul>
-  {{/if}}
-
-  {{input enter="addNewHabit" placeholder="Add a habit" value=newHabitValue class="new-habit-input"}}
+<div class="avg-container">
+  <div class="avg">{{displayAvg}}</div>
+  <div class="avg-bar" {{bind-attr style=avgStyle}}></div>
 </div>
+
+{{#if habits.length}}
+<ul class="list-unstyled habit-list">
+  {{#each habits}}
+    {{view Habitapp.HabitItemView content=this idx=this.contentIndex}}
+  {{/each}}
+</ul>
+{{/if}}
+
+{{input enter="addNewHabit" placeholder="Add a habit" value=newHabitValue class="new-habit-input"}}

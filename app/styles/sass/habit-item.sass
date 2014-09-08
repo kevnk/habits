@@ -1,0 +1,130 @@
+@import 'variables'
+@import 'mixins'
+@import 'utilities'
+
+.new-habit-input
+  +transition(all 500ms ease-out)
+  +unstyle-input
+  border-radius: 4px
+  margin: 6px 0
+  color: white
+  padding: 12px 15px
+  height: 48px
+  display: block
+  width: 100%
+  color: #fff
+  font-size: 18px
+  font-weight: 100
+  letter-spacing: .1em
+  border: 1px solid $element-blue
+  -webkit-appearance: none
+  opacity: .6
+  &:hover
+    opacity: 1
+    cursor: pointer
+  &:focus
+    opacity: 1
+    border-color: $element-green
+
+*::-webkit-input-placeholder
+  color: rgba(255,255,255,0.5)
+
+*:-moz-placeholder
+  color: rgba(255,255,255,0.5)
+
+*::-moz-placeholder
+  color: rgba(255,255,255,0.5)
+
+*:-ms-input-placeholder
+  color: rgba(255,255,255,0.5)
+
+
+.habit-item
+  +unselectable
+  background: $element-blue
+  border-radius: 4px
+  padding: 12px 15px
+  margin: 6px 0
+  +transition(all 100ms ease-in-out)
+  &:active
+    background: lighten($element-blue, 5%)
+
+  input.habit-input
+    +unstyle-input
+    +text-truncate
+    height: 24px
+    display: block
+    width: 100%
+    color: #fff
+    font-weight: 100
+    font-size: 18px
+    letter-spacing: .1em
+  .pull-right
+    margin-right: 10px
+  label
+    +transition(all 100ms ease-in-out)
+    height: 24px
+    line-height: 24px
+    width: 30px
+    margin-bottom: 0
+    font-size: 20px
+    color: #1F5490
+    &.marked
+      color: #fff
+
+.habit-2
+  background: adjust-hue($element-blue, -2deg)
+
+.habit-3
+  background: adjust-hue($element-blue, -4deg)
+
+.habit-4
+  background: adjust-hue($element-blue, -6deg)
+
+.habit-5
+  background: adjust-hue($element-blue, -8deg)
+
+.habit-6
+  background: adjust-hue($element-blue, -10deg)
+
+.habit-7
+  background: adjust-hue($element-blue, -12deg)
+
+.habit-8
+  background: adjust-hue($element-blue, -14deg)
+
+.habit-9
+  background: adjust-hue($element-blue, -16deg)
+
+.habit-10
+  background: adjust-hue($element-blue, -18deg)
+
+.habit-11
+  background: adjust-hue($element-blue, -20deg)
+
+.habit-12
+  background: adjust-hue($element-blue, -22deg)
+
+.habit-13
+  background: adjust-hue($element-blue, -24deg)
+
+.habit-14
+  background: adjust-hue($element-blue, -26deg)
+
+.habit-15
+  background: adjust-hue($element-blue, -28deg)
+
+.habit-16
+  background: adjust-hue($element-blue, -30deg)
+
+.habit-17
+  background: adjust-hue($element-blue, -32deg)
+
+.habit-18
+  background: adjust-hue($element-blue, -34deg)
+
+.habit-19
+  background: adjust-hue($element-blue, -36deg)
+
+.habit-20
+  background: adjust-hue($element-blue, -40deg)
