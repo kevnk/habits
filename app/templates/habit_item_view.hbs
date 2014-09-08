@@ -3,7 +3,7 @@
     <input type="text" class="habit-input" tabindex="0" {{bind-attr value=view.displayTitle}} {{action saveHabitTitle target="view" on="change"}} {{action selectHabitTitle target="view" on="focus"}} />
   </div>
   <div class="pull-right">
-    <label {{bind-attr class=":glyphicon :glyphicon-ok view.markedToday:marked"}}>
+    <label {{bind-attr class=":fa :fa-lg :fa-check view.markedToday:marked"}}>
       <input class="hidden" type="checkbox" tabindex="-1" {{bind-attr checked=view.markedToday}} {{action toggleMark target="view" on="change"}}/>
     </label>
   </div>
