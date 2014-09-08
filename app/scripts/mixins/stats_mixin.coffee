@@ -5,7 +5,7 @@ Habitapp.StatsMixin = Ember.Mixin.create
 
   height: ( ->
     h = $('.avg-container').height()
-    avg = parseFloat @get('finalAvg')
+    avg = parseFloat @get('displayAvg')
     h * (avg/100)
   ).property 'finalAvg', 'displayAvg'
 
