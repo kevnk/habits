@@ -59,18 +59,22 @@
     font-weight: 100
     font-size: 18px
     letter-spacing: .1em
-  .pull-right
-    margin-right: 10px
+    cursor: pointer
+    &:focus
+      cursor: inherit
   label
     +transition(all 100ms ease-in-out)
+    text-align: center
     height: 24px
     line-height: 24px
-    width: 30px
     margin-bottom: 0
     font-size: 20px
     color: #1F5490
+    margin-right: 5px
     &.marked
       color: #fff
+    &:before
+      padding: 10px
 
 .habit-2
   background: adjust-hue($element-blue, -2deg)
