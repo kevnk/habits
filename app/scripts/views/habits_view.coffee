@@ -1,6 +1,6 @@
 Habitapp.HabitsView = Ember.View.extend(
   attachStatsTooltips: ( ->
-    @$().find('.stats a.fa').popover(
+    @$().find('.stats a').popover(
       html: true
     )
   ).on 'didInsertElement'
