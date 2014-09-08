@@ -1,9 +1,13 @@
 Habitapp.HabitItemView = Em.View.extend(
   tagName: 'li'
   classNames: 'habit-item'
-  classNameBindings: ['isEditing:edit-mode']
+  classNameBindings: ['isEditing:edit-mode', 'habitId']
   templateName: 'habit_item_view'
   isEditing: false
+  habitId: ( ->
+    idx = @get('content.idx')
+    'habit-' + Math.min(idx, 20)
+  ).property 'content.idx'
 
   $input: ( ->
     @$().find('input[type=text]').first()

@@ -7,7 +7,7 @@
   {{#if habits.length}}
   <ul class="list-unstyled habit-list">
     {{#each habits}}
-      {{view Habitapp.HabitItemView content=this}}
+      {{view Habitapp.HabitItemView content=this idx=this.contentIndex}}
     {{/each}}
   </ul>
   {{/if}}
