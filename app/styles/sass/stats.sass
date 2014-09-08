@@ -2,36 +2,51 @@
 @import 'mixins'
 @import 'utilities'
 
-.avg-container
-  $avgHeight: $habitWidth - 40
-  overflow: hidden
-  height: $avgHeight
-  width: $avgHeight
-  margin: 0 auto 30px
-  border-radius: 50%
-  background: $element-blue
-  position: relative
-  .avg-bar
-    background: $element-green
-    position: absolute
-    bottom: 0
-    left: 0
-    right: 0
-    z-index: 9
-    height: 0
-    +transition(height 250ms ease-out)
-  .avg
-    line-height: $avgHeight
-    font-size: 70px
-    font-style: italic
-    text-align: center
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    z-index: 10
-    opacity: .5
-    color: $alt-blue
-    font-weight: 100
+#running_daily_avg
+  .avg-container
+    $avgHeight: $habitWidth - 40
+    overflow: hidden
+    height: $avgHeight
+    width: $avgHeight
+    margin: 0 auto
+    border-radius: 50%
+    background: $element-blue
+    position: relative
+    .avg-bar
+      background: $element-green
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: 5
+      height: 0
+      +transition(height 250ms ease-out)
+    .avg
+      line-height: $avgHeight
+      font-size: 70px
+      font-style: italic
+      text-align: center
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: 10
+      opacity: .5
+      color: $alt-blue
+      font-weight: 100
+  a.fa
+    bottom: 20px
+    right: 30px
+    z-index: 15
+  .popover
+    width: 235px
 
+.stats
+  position: relative
+  margin-bottom: 30px
+  a.fa
+    opacity: .3
+    position: absolute
+    bottom: 15px
+    right: 15px
