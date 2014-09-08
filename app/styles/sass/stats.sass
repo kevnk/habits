@@ -46,7 +46,10 @@
   position: relative
   margin-bottom: 30px
   a.fa
-    opacity: .3
+    color: $element-blue
     position: absolute
     bottom: 15px
     right: 15px
+    &:hover
+      color: lighten($element-blue, 10%)
+      cursor: pointer
