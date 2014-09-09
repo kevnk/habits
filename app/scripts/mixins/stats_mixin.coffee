@@ -51,7 +51,8 @@ Habitapp.StatsMixin = Ember.Mixin.create
       marks = habit.get('marks')
       marksLen = marks.get('length')
       startDate = moment( Date.parse(habit.get('createdAt')) )
-      daysSinceStart = moment().diff(startDate, 'days') + 1 # Add 1 to count today
+      today = moment()
+      daysSinceStart = parseFloat(today.format('YYYYMMDD')) - parseFloat(startDate.format('YYYYMMDD')) + 1
       habitsAvgs.push marksLen / daysSinceStart
     if habitsAvgs.length
       avg = habitsAvgs.reduce( (a,b) -> a + b ) / habitsAvgs.length
