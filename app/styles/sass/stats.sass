@@ -10,11 +10,11 @@
     width: $avgHeight
     margin: 0 auto
     border-radius: 50%
-    background: $element-blue
+    background: $elementBlue
     position: relative
     z-index: 10
     .avg-bar
-      background: $element-green
+      background: $elementGreen
       position: absolute
       bottom: 0
       left: 0
@@ -34,8 +34,28 @@
       right: 0
       z-index: 10
       opacity: .5
-      color: $alt-blue
+      color: $altBlue
       font-weight: 100
+    .avg-change
+      opacity: .5
+      color: $altBlue
+      position: absolute
+      z-index: 15
+      bottom: 20px
+      left: 0
+      right: 0
+      text-align: center
+      i
+        +transform(rotate(0deg))
+        +transition(all 1.25s ease-out)
+      &.negative
+        i
+          +transform(rotate(-180deg))
+      &.zero
+        i
+          +transform(rotate(-90deg))
+
+
 
 .stats
   margin-bottom: 30px

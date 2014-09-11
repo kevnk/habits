@@ -3,12 +3,12 @@
 @import 'utilities'
 
 html, body
-  background: #1F5490
+  background: $bgBlue
 
 a
-  color: $link-color
+  color: $linkColor
   &:hover
-    color: $link-color-hover
+    color: $linkColorHover
     text-decoration: none
 
 a.btn-link
@@ -32,6 +32,6 @@ footer
     display: block
     padding: 8px 0
     margin: 2px
-    color: darken($link-color, 10%)
+    color: darken($linkColor, 10%)
     &:hover
-      color: darken($link-color-hover, 10%)
+      color: darken($linkColorHover, 10%)

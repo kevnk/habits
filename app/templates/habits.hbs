@@ -3,6 +3,9 @@
     <div class="avg-container">
       <div class="avg">{{displayAvg}}</div>
       <div class="avg-bar" {{bind-attr style=avgStyle}}></div>
+      {{#if hasPastData}}
+        <div {{bind-attr class=":avg-change changeIsNegative:negative changeIsZero:zero"}}><i class="fa-arrow-up fa"></i> {{displayAvgChange}}</div>
+      {{/if}}
     </div>
   </div>
 </div>

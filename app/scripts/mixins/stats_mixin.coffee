@@ -1,4 +1,23 @@
 Habitapp.StatsMixin = Ember.Mixin.create
+  setHabitAvgData: ( ->
+    if @get('marks.length') and @get('habits.length')
+      today = moment()
+      @get('habits').forEach (habit) ->
+        startDate = moment( Date.parse(habit.get('createdAt')) )
+        daysSinceStart = parseFloat(today.format('YYYYMMDD')) - parseFloat(startDate.format('YYYYMMDD'))
+
+        marks = habit.get('marks')
+        pastMarks = marks.filter (item) ->
+          item.get('day') isnt today.format('YYYY-MM-DD')
+
+        habit.set('avgPast', pastMarks.get('length') / daysSinceStart) if daysSinceStart
+        habit.set 'avgNow', marks.get('length') / (daysSinceStart + 1)
+  ).observes 'habits.@each', 'marks.@each'
+
+  # --------------------------------------------------------
+  # CURRENT AVERAGES
+  # --------------------------------------------------------
+
   avgStyle: ( ->
     'height:' + @get('height') + 'px;'
   ).property 'height'
@@ -43,18 +62,74 @@ Habitapp.StatsMixin = Ember.Mixin.create
   ).property 'finalAvg', 'lastAvg'
 
   average: ( ->
-    habits = @get('habits')
-    habitsLen = habits.get('length')
-    habitsAvgs = []
     avg = 0
-    habits.forEach (habit) ->
-      marks = habit.get('marks')
-      marksLen = marks.get('length')
-      startDate = moment( Date.parse(habit.get('createdAt')) )
-      today = moment()
-      daysSinceStart = parseFloat(today.format('YYYYMMDD')) - parseFloat(startDate.format('YYYYMMDD')) + 1
-      habitsAvgs.push marksLen / daysSinceStart
+    habitsLen = @get('habits.length')
+    habitsAvgs = @get('habits').getEach('avgNow').filter (value) -> value
     if habitsAvgs.length
-      avg = habitsAvgs.reduce( (a,b) -> a + b ) / habitsAvgs.length
+      avg = habitsAvgs.reduce((a,b) -> a + b) / habitsAvgs.length
     avg
   ).property 'habits.@each', 'marks.@each'
+
+
+  # --------------------------------------------------------
+  # PAST AVERAGES
+  # --------------------------------------------------------
+
+  pastAverage: ( ->
+    avg = 0
+    habitsLen = @get('habits.length')
+    habitsAvgs = @get('habits').getEach('avgPast').filter (value) -> value
+    if habitsAvgs.length
+      avg = habitsAvgs.reduce((a,b) -> a + b) / habitsAvgs.length
+    avg
+  ).property 'habits.@each', 'marks.@each'
+
+  finalPastAvg: ( ->
+    Math.round(@get('pastAverage') * 100)
+  ).property 'pastAverage'
+
+  changeIsNegative: ( ->
+    parseFloat(@get('displayAvgChange')) < 0
+  ).property 'displayAvgChange'
+
+  changeIsZero: ( ->
+    parseFloat(@get('displayAvgChange')) is 0
+  ).property 'displayAvgChange'
+
+  lastAvgChange: 0
+  startingAvgChange: 0
+
+  avgChange: ( ->
+     @get('finalAvg') - @get('finalPastAvg')
+  ).property 'finalPastAvg', 'finalAvg'
+
+  displayAvgChange: ( ->
+    if @get('finalAvg') is @get('startingAvg')
+      lastAvgChange = @get('lastAvgChange')
+      avgChange = @get('avgChange')
+      runningDelta = Math.abs(avgChange - lastAvgChange)
+      finalDelta = Math.abs(avgChange - @get('startingAvgChange'))
+      timeDelta = 1 - (runningDelta / finalDelta)
+      Ember.run.cancel @avgChangeGoingUp
+      Ember.run.cancel @avgChangeGoingDown
+      # The average is going up
+      if lastAvgChange < avgChange and runningDelta > 1
+        @avgChangeGoingUp = Ember.run.later =>
+          @set 'lastAvgChange', lastAvgChange + 1
+        , timeDelta * 200
+        (lastAvgChange + 1) + '%'
+      # The average is going down
+      else if lastAvgChange > avgChange and runningDelta > 1
+        @avgChangeGoingDown = Ember.run.later =>
+          @set 'lastAvgChange', lastAvgChange - 1
+        , timeDelta * 200
+        (lastAvgChange - 1) + '%'
+      # The running average reached the avgChange
+      else
+        @set 'startingAvgChange', avgChange
+        avgChange + '%'
+    else
+      @get('startingAvgChange') + '%'
+  ).property 'avgChange', 'lastAvgChange', 'finalAvg', 'startingAvg'
+
+
