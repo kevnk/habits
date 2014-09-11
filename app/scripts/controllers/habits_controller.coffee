@@ -3,8 +3,8 @@ Habitapp.HabitsController = Ember.ObjectController.extend Habitapp.StatsMixin,
   marks: []
 
   hasPastData: ( ->
-    @get('marks').any (mark) ->
-      day = mark.get('day').replace /\-/g, ''
+    @get('habits').any (habit) ->
+      day = moment(Date.parse(habit.get('createdAt'))).format('YYYYMMDD')
       day < moment().format('YYYYMMDD')
   ).property 'marks.@each'
 

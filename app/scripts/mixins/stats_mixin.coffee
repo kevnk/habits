@@ -1,6 +1,6 @@
 Habitapp.StatsMixin = Ember.Mixin.create
   setHabitAvgData: ( ->
-    if @get('marks.length') and @get('habits.length')
+    if @get('marks') and @get('habits')
       today = moment()
       @get('habits').forEach (habit) ->
         startDate = moment( Date.parse(habit.get('createdAt')) )
@@ -63,10 +63,10 @@ Habitapp.StatsMixin = Ember.Mixin.create
 
   average: ( ->
     avg = 0
-    habitsLen = @get('habits.length')
-    habitsAvgs = @get('habits').getEach('avgNow').filter (value) -> value
-    if habitsAvgs.length
-      avg = habitsAvgs.reduce((a,b) -> a + b) / habitsAvgs.length
+    if habitsLen = @get('habits.length')
+      habitsAvgs = @get('habits').getEach('avgNow').filter (val) -> val
+      if habitsAvgs.length
+        avg = habitsAvgs.reduce((a,b) -> a + b) / habitsLen
     avg
   ).property 'habits.@each', 'marks.@each'
 
@@ -77,10 +77,10 @@ Habitapp.StatsMixin = Ember.Mixin.create
 
   pastAverage: ( ->
     avg = 0
-    habitsLen = @get('habits.length')
-    habitsAvgs = @get('habits').getEach('avgPast').filter (value) -> value
-    if habitsAvgs.length
-      avg = habitsAvgs.reduce((a,b) -> a + b) / habitsAvgs.length
+    if habitsLen = @get('habits.length')
+      habitsAvgs = @get('habits').getEach('avgPast').filter (val) -> val
+      if habitsAvgs.length
+        avg = habitsAvgs.reduce((a,b) -> a + b) / habitsLen
     avg
   ).property 'habits.@each', 'marks.@each'
 
