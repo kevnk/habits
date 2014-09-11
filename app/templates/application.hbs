@@ -1,6 +1,7 @@
 <div class="main-container" id="main">
   {{outlet}}
-  <footer>
+  <a class="footer-toggle btn btn-block btn-link btn-success" onclick="$('footer').toggleClass('hidden')"><i class="fa fa-bars"></i> Menu</a>
+  <footer class="hidden">
     <section class="feedback">
       <h4>Have Feedback?</h4>
       <a class="btn btn-link btn-block" href="mailto:hello@kevnk.com" target="_blank">
