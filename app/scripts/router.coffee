@@ -5,6 +5,8 @@ Habitapp.Router.map( ->
     @route('create')
   )
 
+  @route('reset')
+
   @resource('users', ->
     @resource('user', path: '/:user_id', ->
       @route('edit')

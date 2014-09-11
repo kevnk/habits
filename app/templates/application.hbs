@@ -1,7 +1,7 @@
 <div class="main-container" id="main">
   {{outlet}}
   <footer class="col-xs-12">
-    <div class="feedback">
+    <section class="feedback">
       <h4>Have Feedback?</h4>
       <a href="mailto:hello@kevnk.com" target="_blank">
         <i class="fa fa-envelope-o fa-lg"></i> &nbsp;Email me
@@ -12,7 +12,12 @@
       <a href="https://github.com/kevnk/habits/issues/new" target="_blank">
         <i class="fa fa-github fa-lg"></i> &nbsp;Add an issue
       </a>
-    </div>
+    </section>
+    <section>
+      <h4>Danger Zone</h4>
+      <a href="javascript:void(0)" onclick="r = confirm('Are you sure? \n\nThere is no undo!\nOnly consider if you can\'t get any habits to show after refreshing your page.'); if(r) window.location.href = '/#/reset';" class="btn btn btn-danger btn-block">Remove &amp; Reset <i>Everything</i></a>
+    </section>
+
   </footer>
 </div>
 
