@@ -1,6 +1,7 @@
 Habitapp.HabitsController = Ember.ObjectController.extend Habitapp.StatsMixin,
   habits: []
   marks: []
+  hasAccessedMarks: false
 
   hasPastData: ( ->
     @get('habits').any (habit) ->
@@ -16,6 +17,7 @@ Habitapp.HabitsController = Ember.ObjectController.extend Habitapp.StatsMixin,
       # TODO: eventually these marks will only be marks attributed to the user, not ALL marks
       # But for now, all the marks belong to this user
     @set 'marks', @get('store').find('mark')
+    @set 'hasAccessedMarks', true
   ).observes 'habits.@each'
 
   actions:
