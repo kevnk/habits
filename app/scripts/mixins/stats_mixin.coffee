@@ -1,16 +1,17 @@
 Habitapp.StatsMixin = Ember.Mixin.create
   setHabitAvgData: ( ->
-    today = moment()
-    @get('habits').forEach (habit) ->
-      startDate = moment( Date.parse(habit.get('createdAt')) )
-      daysSinceStart = parseFloat(today.format('YYYYMMDD')) - parseFloat(startDate.format('YYYYMMDD'))
+    if @get('marks.length')
+      today = moment()
+      @get('habits').forEach (habit) ->
+        startDate = moment( Date.parse(habit.get('createdAt')) )
+        daysSinceStart = parseFloat(today.format('YYYYMMDD')) - parseFloat(startDate.format('YYYYMMDD'))
 
-      marks = habit.get('marks')
-      pastMarks = marks.filter (item) ->
-        item.get('day') isnt today.format('YYYY-MM-DD')
+        marks = habit.get('marks')
+        pastMarks = marks.filter (item) ->
+          item.get('day') isnt today.format('YYYY-MM-DD')
 
-      habit.set('avgPast', pastMarks.get('length') / daysSinceStart) if daysSinceStart
-      habit.set 'avgNow', marks.get('length') / (daysSinceStart + 1)
+        habit.set('avgPast', pastMarks.get('length') / daysSinceStart) if daysSinceStart
+        habit.set 'avgNow', marks.get('length') / (daysSinceStart + 1)
   ).observes 'habits.@each', 'marks.@each'
 
   # --------------------------------------------------------
