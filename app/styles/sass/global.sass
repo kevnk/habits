@@ -5,16 +5,12 @@
 html, body
   background: $bgBlue
 
-a
+a, a.btn-link
   color: $linkColor
+  font-weight: 200
   &:hover
     color: $linkColorHover
     text-decoration: none
-
-a.btn-link
-  font-weight: 200
-  text-align: left
-  text-indent: 15px
 
 .main-container
   width: $habitWidth
@@ -26,14 +22,15 @@ footer
   section
     padding-bottom: 30px
   h4
-    margin-bottom: .5em
     color: white
     font-weight: 100
     letter-spacing: 0.1em
-  a
-    display: block
-    padding: 8px 0
-    margin: 2px
+  a.btn-link
+    text-indent: 5px
+    text-align: left
     color: darken($linkColor, 10%)
     &:hover
       color: darken($linkColorHover, 10%)
+  section.danger
+    h4
+      margin-bottom: 1em

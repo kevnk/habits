@@ -1,21 +1,21 @@
 <div class="main-container" id="main">
   {{outlet}}
-  <footer class="col-xs-12">
+  <footer>
     <section class="feedback">
       <h4>Have Feedback?</h4>
-      <a href="mailto:hello@kevnk.com" target="_blank">
+      <a class="btn btn-link btn-block" href="mailto:hello@kevnk.com" target="_blank">
         <i class="fa fa-envelope-o fa-lg"></i> &nbsp;Email me
       </a>
-      <a href="https://trello.com/b/vDjWlJLg/habits-public-board" target="_blank">
+      <a class="btn btn-link btn-block" href="https://trello.com/b/vDjWlJLg/habits-public-board" target="_blank">
         <i class="fa fa-trello fa-lg"></i> &nbsp;Add a card
       </a>
-      <a href="https://github.com/kevnk/habits/issues/new" target="_blank">
+      <a class="btn btn-link btn-block" href="https://github.com/kevnk/habits/issues/new" target="_blank">
         <i class="fa fa-github fa-lg"></i> &nbsp;Add an issue
       </a>
     </section>
-    <section>
+    <section class="danger">
       <h4>Danger Zone</h4>
-      <a href="javascript:void(0)" onclick="r = confirm('Are you sure? \n\nThere is no undo!\nOnly consider if you can\'t get any habits to show after refreshing your page.'); if(r) window.location.href = '#/reset';" class="btn btn btn-danger btn-block">Remove &amp; Reset <i>Everything</i></a>
+      <a href="javascript:void(0)" onclick="r = confirm('Are you sure? \n\nThere is no undo!\nOnly consider if you can\'t get any habits to show after refreshing your page.'); if(r) window.location.href = '#/reset';" class="btn btn-danger btn-block">Remove &amp; Reset <i>Everything</i></a>
     </section>
 
   </footer>
