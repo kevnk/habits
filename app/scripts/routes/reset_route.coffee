@@ -5,4 +5,4 @@ Habitapp.ResetRoute = Ember.Route.extend
     localStorage.removeItem 'habitapp'
     date = moment().format('YYYY-MM-DD-HH-MM')
     localStorage.setItem 'habitapp_bak_' + date, habitapp
-    window.location.href = '/'
+    window.location.href = ''
