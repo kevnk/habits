@@ -1,6 +1,6 @@
 Habitapp.StatsMixin = Ember.Mixin.create
   setHabitAvgData: ( ->
-    if @get('marks.length')
+    if @get('marks.length') >= 0
       today = moment()
       @get('habits').forEach (habit) ->
         startDate = moment( Date.parse(habit.get('createdAt')) )
