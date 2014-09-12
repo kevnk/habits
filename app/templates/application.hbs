@@ -1,6 +1,6 @@
 <div class="main-container" id="main">
   {{outlet}}
-  <a class="footer-toggle btn btn-block btn-link btn-success" onclick="$('footer').toggleClass('hidden')"><i class="fa fa-bars"></i> Menu</a>
+  <a class="footer-toggle btn btn-block btn-link btn-success"><i class="fa fa-bars"></i> Menu</a>
   <footer class="hidden">
     <section class="feedback">
       <h4>Have Feedback?</h4>
@@ -31,5 +31,18 @@
 
   ga('create', 'UA-54551934-1', 'auto');
   ga('send', 'pageview');
+</script>
 
+<script>
+  (function($){
+    $footer = $('footer')
+    $('.footer-toggle').on('click', function(){
+      $footer.toggleClass('hidden')
+      if ($footer.is(':visible')) {
+        $('html,body').animate({
+          scrollTop: $footer.offset().top
+        }, 1000)
+      }
+    })
+  })(jQuery)
 </script>
