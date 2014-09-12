@@ -3,7 +3,11 @@ Habitapp.HabitsRoute = Ember.Route.extend
     @get('store').find('habit')
 
   setupController: (controller, habits) ->
-    @_super controller, habits
     controller.set 'habits', habits
+    marks = @get('store').find('mark').then (marks) ->
+      controller.set 'marks', marks
+      controller.set 'hasAccessedMarks', true
+    @_super controller, habits
+
 
 
