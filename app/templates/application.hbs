@@ -1,6 +1,5 @@
 <div class="main-container" id="main">
   {{outlet}}
-  <a class="footer-toggle btn btn-block btn-link btn-success"><i class="fa fa-bars"></i> Menu &nbsp;&nbsp;<i class="fa fa-caret-right"></i></a>
   <footer class="fade">
     <section class="feedback">
       <h4>Have Feedback?</h4>
@@ -28,35 +27,15 @@
   (function($, window){
     $w = $(window);
     $footer = $('footer');
-    $footerToggle = $('.footer-toggle');
-    $footerToggle.on('click', function(){
-      pageScroll = $w.scrollTop();
-      footerIsVisible = $footer.hasClass('in');
-      $footer.toggleClass('in');
-      $footerToggle.toggleClass('open');
-
-      if(footerIsVisible){
-        scroll = $footer.data('last-scroll') || 0
-      } else {
-        $footer.data('last-scroll', pageScroll)
-        scroll = $footer.offset().top - 30
-      }
-
-      $('html,body').animate({
-        scrollTop: scroll
-      }, 1000)
-    });
 
     $w.on('scroll', function(){
-      triggerPoint = $footer.offset().top - $w.height() + 200
+      triggerPoint = $footer.offset().top - $w.height() + 300
       pageScroll = $w.scrollTop();
 
       if(pageScroll > triggerPoint) {
         $footer.addClass('in')
-        $footerToggle.addClass('open')
       } else {
         $footer.removeClass('in')
-        $footerToggle.removeClass('open')
       }
     });
   })(jQuery, this)
