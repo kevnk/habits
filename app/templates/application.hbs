@@ -1,6 +1,6 @@
 <div class="main-container" id="main">
   {{outlet}}
-  <a class="footer-toggle btn btn-block btn-link btn-success"><i class="fa fa-bars"></i> Menu</a>
+  <a class="footer-toggle btn btn-block btn-link btn-success"><i class="fa fa-bars"></i> Menu &nbsp;&nbsp;<i class="fa fa-caret-right"></i></a>
   <footer class="fade">
     <section class="feedback">
       <h4>Have Feedback?</h4>
@@ -14,13 +14,56 @@
         <i class="fa fa-github fa-lg"></i> &nbsp;Add an issue
       </a>
     </section>
+    <section class="twitter">
+      <a class="twitter-timeline" href="https://twitter.com/_habits_" data-widget-id="510439456722018304">Tweets by @_habits_</a>
+    </section>
     <section class="danger">
       <h4>Danger Zone</h4>
       <a href="javascript:void(0)" onclick="r = confirm('Are you sure? \n\nThere is no undo!\nOnly consider if you can\'t get any habits to show after refreshing your page.'); if(r) window.location.href = '#/reset';" class="btn btn-lg btn-danger btn-block">Remove &amp; Reset <i>Everything</i></a>
     </section>
-
   </footer>
 </div>
+
+<script>
+  (function($, window){
+    $w = $(window);
+    $footer = $('footer');
+    $footerToggle = $('.footer-toggle');
+    $footerToggle.on('click', function(){
+      pageScroll = $w.scrollTop();
+      footerIsVisible = $footer.hasClass('in');
+      $footer.toggleClass('in');
+      $footerToggle.toggleClass('open');
+
+      if(footerIsVisible){
+        scroll = $footer.data('last-scroll') || 0
+      } else {
+        $footer.data('last-scroll', pageScroll)
+        scroll = $footer.offset().top - 30
+      }
+
+      $('html,body').animate({
+        scrollTop: scroll
+      }, 1000)
+    });
+
+    $w.on('scroll', function(){
+      triggerPoint = $footer.offset().top - $w.height() + 200
+      pageScroll = $w.scrollTop();
+
+      if(pageScroll > triggerPoint) {
+        $footer.addClass('in')
+        $footerToggle.addClass('open')
+      } else {
+        $footer.removeClass('in')
+        $footerToggle.removeClass('open')
+      }
+    });
+  })(jQuery, this)
+</script>
+
+<!-- Twitter widget -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 <!-- Google Analytics -->
 <script>
@@ -33,24 +76,3 @@
   ga('send', 'pageview');
 </script>
 
-<script>
-  (function($, window){
-    $footer = $('footer')
-    $('.footer-toggle').on('click', function(){
-      pageScroll = $(window).scrollTop();
-      footerIsVisible = $footer.hasClass('in');
-      $footer.toggleClass('in');
-
-      if(footerIsVisible){
-        scroll = $footer.data('last-scroll') || 0
-      } else {
-        $footer.data('last-scroll', pageScroll)
-        scroll = $footer.offset().top
-      }
-
-      $('html,body').animate({
-        scrollTop: scroll
-      }, 1000)
-    })
-  })(jQuery, this)
-</script>
