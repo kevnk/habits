@@ -1,6 +1,6 @@
 <div class="main-container" id="main">
   {{outlet}}
-  <footer class="fade">
+  <footer class="fade in">
     <section class="feedback">
       <h4>Have Feedback?</h4>
       <a class="btn btn-link btn-block" href="mailto:hello@kevnk.com" target="_blank">
@@ -22,24 +22,6 @@
     </section>
   </footer>
 </div>
-
-<script>
-  (function($, window){
-    $w = $(window);
-    $footer = $('footer');
-
-    $w.on('scroll', function(){
-      triggerPoint = $footer.offset().top - $w.height() + 50
-      pageScroll = $w.scrollTop();
-
-      if(pageScroll > triggerPoint) {
-        $footer.addClass('in')
-      } else {
-        $footer.removeClass('in')
-      }
-    });
-  })(jQuery, this)
-</script>
 
 <!-- Twitter widget -->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
