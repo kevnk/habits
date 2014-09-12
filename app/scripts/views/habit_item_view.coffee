@@ -4,6 +4,19 @@ Habitapp.HabitItemView = Em.View.extend(
   classNameBindings: ['isEditing:edit-mode', 'habitId']
   templateName: 'habit_item_view'
   isEditing: false
+  habit: Ember.computed.alias 'content'
+  displayTitle: Ember.computed.alias 'content.title'
+  habitAvgStyle: ''
+
+  setHabitAvgStyle: ( ->
+    perc = @$().outerWidth() * @get('content.avgNow')
+    @set 'habitAvgStyle', 'width: ' + perc + 'px;'
+  ).on 'didInsertElement'
+
+  resetHabitAvgStyle: ( ->
+    @setHabitAvgStyle()
+  ).observes 'content.avgNow'
+
   habitId: ( ->
     idx = @get('content.idx')
     'habit-' + Math.min(idx, 20)
@@ -25,14 +38,6 @@ Habitapp.HabitItemView = Em.View.extend(
     @get('todaysMarks').length > 0
   ).property 'todaysMarks'
 
-  # Store the model on this view for better use
-  habit: ( ->
-    habit = @get('content')
-    @get('controller.model').find (model) ->
-      model is habit
-  ).property 'content'
-
-  displayTitle: Ember.computed.alias 'content.title'
 
   setHabitOrder: ( ->
     @send 'saveHabitOrder', @get('contentIndex')
