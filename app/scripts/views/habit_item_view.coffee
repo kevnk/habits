@@ -13,6 +13,10 @@ Habitapp.HabitItemView = Em.View.extend(
     @set 'habitAvgStyle', 'width: ' + perc + 'px;'
   ).on 'didInsertElement'
 
+  makeSortable: ( ->
+    @get('parentView').send 'makeSortable'
+  ).on 'didInsertElement'
+
   resetHabitAvgStyle: ( ->
     @setHabitAvgStyle()
   ).observes 'content.avgNow'

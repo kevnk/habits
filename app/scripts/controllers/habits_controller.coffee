@@ -28,5 +28,21 @@ Habitapp.HabitsController = Ember.ObjectController.extend Habitapp.StatsMixin,
         title: value
       })
       habit.save()
+
+      habits = Ember.A()
+      @get('habits').forEach (habitItem) ->
+        habits.pushObject habitItem
+      habits.pushObject habit
+      @set('habits', habits.sortBy('idx'))
+
       # TODO - focus on that input
       @set 'newHabitValue', ''
+
+    updateSortOrder: (indexes) ->
+      @get('habits').forEach (habit) ->
+        habitIdx = habit.get('idx')
+        newIdx = indexes[habitIdx]
+        habit.set 'idx', newIdx
+        habit.save()
+
+      @set('habits', @get('habits').sortBy('idx'))

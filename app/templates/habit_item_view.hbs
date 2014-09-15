@@ -1,4 +1,4 @@
-<div class="habit-container">
+<div class="habit-container" {{bind-attr data-idx=idx}}>
   <div class="row">
     <div class="col-xs-10">
       <input type="text" class="habit-input" tabindex="0" {{bind-attr value=view.displayTitle}} {{action saveHabitTitle target="view" on="change"}} {{action selectHabitTitle target="view" on="focus"}} />
