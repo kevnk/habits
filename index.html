@@ -1,21 +1,121 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Habits // time to make some</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-        <link rel="icon" type="image/png" href="images/cd7334dc.favicon.png">
-        <link rel="apple-touch-icon" href="images/25c0a2a9.apple-touch-icon.png">
-        <link rel="stylesheet" href="styles/97cd7dd2.main.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habits — Local-First Habit Tracker Your AI Agent Can Use</title>
+  <meta name="description" content="Track daily and weekly habits on your own device. Your AI agent can mark them for you over MCP. 25 free agent calls a day, or $20 once for unlimited.">
+  <link rel="canonical" href="https://www.kevnk.com/habits/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.kevnk.com/habits/">
+  <meta property="og:title" content="Habits: track your habits, let your AI agent check them off">
+  <meta property="og:description" content="Local-first daily and weekly habits with reminders and workspaces. Connect your AI agent over MCP and it marks habits for you. $20 once, not a subscription.">
+  <meta property="og:image" content="https://www.kevnk.com/habits/images/og-habits-1200x630.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Habits: local-first habit tracker with AI agent access">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Habits: track your habits, let your AI agent check them off">
+  <meta name="twitter:description" content="Local-first daily and weekly habits with reminders and workspaces. Connect your AI agent over MCP and it marks habits for you. $20 once, not a subscription.">
+  <meta name="twitter:image" content="https://www.kevnk.com/habits/images/og-habits-1200x630.jpg">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.kevnk.com/habits/#webpage",
+      "url": "https://www.kevnk.com/habits/",
+      "name": "Habits — Local-First Habit Tracker Your AI Agent Can Use",
+      "description": "Habits is a local-first habit tracker for daily and weekly habits, with reminders, workspaces, and MCP access so AI agents can read and mark habits for you.",
+      "isPartOf": { "@id": "https://www.kevnk.com/#website" },
+      "about": { "@id": "https://www.kevnk.com/habits/#app" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.kevnk.com/habits/#app",
+      "name": "Habits",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web",
+      "url": "https://habits.kevnk.com/",
+      "description": "Habits is a local-first habit tracker for daily and weekly habits, with reminders, workspaces, and MCP access so AI agents can read and mark habits for you.",
+      "author": {
+        "@type": "Person",
+        "name": "Kevin Kirchner",
+        "url": "https://www.kevnk.com/"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free tier",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "25 agent tool calls per user per UTC day; auth, sync, and GET /api/tools unlimited"
+        },
+        {
+          "@type": "Offer",
+          "name": "Agent Access",
+          "price": "20",
+          "priceCurrency": "USD",
+          "description": "One-time lifetime unlock for unlimited agent calls"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    :root { color-scheme: light dark; --bg: #0b1220; --fg: #f8fafc; --muted: #94a3b8; --card: #111827; --accent: #38bdf8; --border: #1f2937; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.55; }
+    .wrap { max-width: 40rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    header { margin-bottom: 2rem; }
+    header a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+    header a:hover { color: var(--fg); }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.1rem); line-height: 1.2; margin: 0 0 1rem; }
+    .lead { font-size: 1.1rem; color: #e2e8f0; margin: 0 0 1.75rem; }
+    ul { padding-left: 1.1rem; margin: 0 0 2rem; }
+    li { margin: 0.55rem 0; }
+    .pricing { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.2rem; margin: 0 0 1.75rem; }
+    .pricing p { margin: 0.55rem 0; }
+    .ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .ctas a { display: inline-block; padding: 0.7rem 1.1rem; border-radius: 999px; text-decoration: none; font-weight: 600; }
+    .ctas a.primary { background: var(--accent); color: #0b1220; }
+    .ctas a.secondary { border: 1px solid var(--border); color: var(--fg); }
+    footer { margin-top: 3rem; color: var(--muted); font-size: 0.9rem; }
+    footer a { color: var(--muted); }
+  </style>
 </head>
-    <body>
-        <script src="scripts/5b5731d5.components.js"></script>
-
-        <script src="scripts/3fd6e14c.templates.js"></script>
-
-        <script src="scripts/9508b7cf.main.js"></script>
-
-        <script src="scripts/d41d8cd9.plugins.js"></script>
-
+<body>
+  <div class="wrap">
+    <header>
+      <a href="https://www.kevnk.com/">kevnk</a>
+    </header>
+    <main>
+      <h1>A local-first habit tracker your AI agent can mark for you</h1>
+      <p class="lead">Habits stores your daily and weekly habits on your device first, then syncs them to your other devices. Tell your AI agent "I worked out" and it checks the habit off, no app to open.</p>
+      <ul>
+        <li><strong>Local-first.</strong> Your habits live on your device first. Sync keeps your other devices current.</li>
+        <li><strong>Daily and weekly habits.</strong> Daily for every-day things. Weekly when that is the cadence.</li>
+        <li><strong>Reminders.</strong> Pick a time and Habits nudges you.</li>
+        <li><strong>Workspaces.</strong> Keep work, home, and health habits apart.</li>
+        <li><strong>Agent access over MCP.</strong> Your AI agent can see what's left today, mark or unmark a habit, and tell you your streak.</li>
+      </ul>
+      <div class="pricing">
+        <p><strong>Free:</strong> 25 agent tool calls per user per UTC day. Sign-in, sync, and listing tools (<code>GET /api/tools</code>) don't count.</p>
+        <p><strong>Agent Access — $20 one time:</strong> unlimited agent calls for life. Not a subscription. Buy it at <a href="https://habits.kevnk.com/billing">https://habits.kevnk.com/billing</a></p>
+      </div>
+      <div class="ctas">
+        <a class="primary" href="https://habits.kevnk.com/">Start tracking free</a>
+        <a class="secondary" href="https://habits.kevnk.com/guide.md">Read the agent guide</a>
+      </div>
+    </main>
+    <footer>
+      <p><a href="https://www.kevnk.com/">kevnk.com</a> · <a href="https://www.kevnk.com/resume/">Resume</a></p>
+    </footer>
+  </div>
 </body>
 </html>
