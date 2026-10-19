@@ -1,0 +1,17 @@
+# Habits
+
+> Habits is a local-first habit tracker for daily and weekly habits, with reminders, workspaces, and MCP access so AI agents can read and mark habits for you.
+
+Habits stores your daily and weekly habits on your device first, then syncs them to your other devices. Reminders nudge you at a time you pick, and workspaces keep work, home, and health habits apart. Over MCP, your AI agent can see what's left today, mark or unmark a habit, and tell you your streak. Free: 25 agent tool calls per user per UTC day; sign-in, sync, and listing tools (`GET /api/tools`) don't count. Agent Access: $20 one time for unlimited agent calls for life, not a subscription.
+
+## Habits
+
+- [Landing page](https://habits.truefrontier.app/): What Habits does, its features, and pricing
+- [Habits app](https://habits.kevnk.com/): Start tracking free
+- [Agent guide](https://habits.kevnk.com/guide.md): Read the agent guide
+- [Billing](https://habits.kevnk.com/billing): Buy Agent Access, $20 one time
+
+## Optional
+
+- [kevnk.com](https://www.kevnk.com/): Site of Kevin Kirchner, the author of Habits
+- [Resume](https://www.kevnk.com/resume/): Resume page on kevnk.com
